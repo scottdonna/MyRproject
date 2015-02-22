@@ -1,7 +1,7 @@
 # merge the data of all test and train data files
 
 #set working directory and download files
-setwd("C:/Users/Daddy/Documents/R/")
+# setwd("C:/Users/Daddy/Documents/R/")
 # File URL to download
 file_URL <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
 # Directory
@@ -16,11 +16,11 @@ if (file.exists(dataFileZIP) == FALSE) {
 if (file.exists(dirFile) == FALSE) {
         unzip(dataFileZIP)
 }
-# Directory and filename (txt or csv) of the clean/tidy data:
+# Directory and filename (txt) of the clean/tidy data:
 tidyDataFile <- "./tidy-UCI-HAR-dataset.txt"
-# tidyDataFileAVG <- "./tidy-UCI-HAR-dataset-AVG.csv"
-# Directory and filename (.txt) of the clean/tidy data
+# Directory and filename (.txt or csv) of the clean/tidy data
 tidyDataFileAVGtxt <- "./tidy-UCI-HAR-dataset-AVG.txt"
+tidyDataFileAVG <- "./tidy-UCI-HAR-dataset-AVG.csv"
 
 ## 1. Merges the training and the test sets to create one data set
 # Read in the datasets from the Train directory
@@ -72,6 +72,6 @@ names(tidyDataAVGSet)[2] <- "Activity"# Created csv (tidy data set) in diretory
 # Created csv (tidy data set) in diretory
 write.table(tidyDataSet, tidyDataFile)
 # Created csv (tidy data set AVG) in diretory
-# write.csv(tidyDataAVGSet, tidyDataFileAVG)
+write.csv(tidyDataAVGSet, tidyDataFileAVG)
 # Created txt (tidy data set AVG) in diretory
 write.table(tidyDataAVGSet, tidyDataFileAVGtxt)
